@@ -26,3 +26,37 @@ function getUserWeapon()
     }
     return userWeapon;
 }
+
+
+/*declare a function called getComputerWeapon(), 
+it returns one of: --Rock, Paper, Scissor-- */
+function getComputerWeapon()
+{
+    //declare a variable named computerWeapon
+    let computerWeapon;
+
+    /* declare a variable named random,
+    and stores into it a random number that fall into the [0, 99] interval */
+    let random = Math.floor(Math.random()*100);
+
+    //if the random number fall into: [0, 33); store "ROCK" in the-computerWeapon-variable
+    if((random >= 0) && (random < 33))
+    {
+        computerWeapon = 'ROCK';
+    }
+    //if the random number fall into: [33, 66); store "PAPER" in the-computerWeapon-variable
+    else if((random >= 33) && (random < 66))
+    {
+        computerWeapon = 'PAPER';
+    }
+    //if the random number fall into: [66, 99]; store "SCISSOR" in the-computerWeapon-variable
+    else
+    {
+        computerWeapon = 'SCISSOR';
+    }
+
+    //return computerWeapon
+    return computerWeapon;
+}
+
+
