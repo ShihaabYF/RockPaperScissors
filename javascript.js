@@ -24,13 +24,5 @@ function getUserWeapon()
         // transform all the-userWeapon's-word-letters to upperCase
         userWeapon = userWeapon.toUpperCase();
     }
-
-
-    // if(userWeapon !== 'ROCK' && userWeapon !== 'SCISSOR' && userWeapon !== 'PAPER')
-    // {
-    //     console.warn("Your weapon is NOT VALID, <<Try Again>>\n");
-    //     getUserWeapon();
-    // }
-    // return weapon
     return userWeapon;
 }
