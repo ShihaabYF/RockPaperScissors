@@ -60,3 +60,65 @@ function getComputerWeapon()
 }
 
 
+
+/* declare a function called "isUserWeaponTheStrongest",
+that has two parameters, named: "userWeapon", and "computerWeapon".
+
+Note --this function only handles the cases where: userWeapon !== computerWeapon 
+which mean is necessary to check-that before calling it, or it will return 'undefined'*/
+function isUserWeaponTheStrongest(userWeapon, computerWeapon)
+{
+    //---if userWeapon is 'ROCK'---------------------
+    if(userWeapon === 'ROCK')
+    {
+        //and if computerWeapon is 'SCISSOR', return true
+        if(computerWeapon === 'SCISSOR')
+        {
+            return true;
+        }
+        //else if computerWeapon is 'PAPER', return false 
+        else if(computerWeapon === 'PAPER')
+        {
+            return false;
+        }
+    }
+    //---else if the userWeapon is 'PAPER'--------------------
+    else if(userWeapon === 'PAPER')
+    {
+        //and if computerWeapon is 'ROCK', return true
+        if(computerWeapon === 'ROCK')
+        {
+            return true;
+        }
+        //else if computerWeapon is 'SCISSOR', return false 
+        else if(computerWeapon === 'SCISSOR')
+        {
+            return false;
+        }
+
+    }
+    //---else if the userWeapon is 'SCISSOR'---------------------
+    else if(userWeapon === 'SCISSOR')
+    {
+        //and if computerWeapon is 'PAPER', return true
+        if(computerWeapon === 'PAPER')
+        {
+            return true;
+        }
+        //else if computerWeapon is 'ROCK', return false 
+        else if(computerWeapon === 'ROCK')
+        {
+            return false;
+        }
+
+    }
+
+    
+    /*alert the message:
+    "The weapons are the SAME type and I DO-NOT know WHAT-TO-DO,...
+    ...please be sure that the weapons are distinct before calling me!!",
+    >>when the caller send the same type of weapon!!
+    
+    Note: this line of code only run if NONE of the conditionals above are executed*/
+    alert("The weapons are the SAME type and I DO-NOT know WHAT-TO-DO,...\n...please be sure that the weapons are distinct before calling me!!");
+}
