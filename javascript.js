@@ -122,3 +122,105 @@ function isUserWeaponTheStrongest(userWeapon, computerWeapon)
     Note: this line of code only run if NONE of the conditionals above are executed*/
     alert("The weapons are the SAME type and I DO-NOT know WHAT-TO-DO,...\n...please be sure that the weapons are distinct before calling me!!");
 }
+
+
+//declare a var named 'theWinner' that gonna stores the winner of the game
+let theWinner;
+
+//declare a var named 'userScore' that stores the user score, and initialize it with int 0
+let userScore = 0;
+
+//declare a var named 'computerScore' that stores the computer score, and initialize it with int 0
+let computerScore = 0;
+
+//declare a var named 'roundCounter' that count the number of rounds, and initialize it with int 1
+let roundCounter = 1;
+
+/*declare a var named 'userWeapon' that gonna stores one of: "--Rock, Paper, Scissor--"
+it will store the value that will be token from the user later */
+let userWeapon;
+
+/*declare a var named 'computerWeapon' that gonna stores one of: "--Rock, Paper, Scissor--"
+it will store the value that will be generated randomly by the computer later */
+let computerWeapon;
+
+
+//make an infinite loop that only stop if 'userScore' OR 'computerScore' is equal to 5
+while(true)
+{
+    //assign 'userWeapon' var with the output of 'getUserWeapon()'
+    userWeapon = getUserWeapon();
+
+    //assign 'computerWeapon' var with the output of 'getComputerWeapon()'
+    computerWeapon = getComputerWeapon();
+
+    //if the weapons are the same
+    if (userWeapon === computerWeapon)
+    {
+        /*display the message: "The Round Number: ...;  it is a Tie-Round, No winner, No loser!"
+        that shows a tie game, including the 'roundCounter' number* that show the round number/*/
+        console.log(`The Round Number: ${roundCounter};  it is a Tie-Round, No winner, No loser!`);
+
+        //increase 'roundCounter' by one
+        ++roundCounter;
+    }
+    //else if the user is the round winner 
+    else if(isUserWeaponTheStrongest(userWeapon, computerWeapon))
+    {
+        //increase 'userScore' by one;
+        ++userScore;
+
+        /*display the message: "The Round Number: ... ; RoundWinner: The USER.
+        ---UserScore: ... ---  vs --- ComputerScore: ---
+        the 'userWeapon' Beats the 'computerWeapon'"*/
+        console.log(`The Round Number: ${roundCounter}; RoundWinner: The USER.\n---UserScore: ${userScore} ------  vs --- ComputerScore: ${computerScore}---\nthe ${userWeapon} Beats the ${computerWeapon}`);
+        
+        //increase 'roundCounter' by one
+        ++roundCounter;
+    }
+    //else if the computer is the round winner
+    else
+    {
+        //increase 'computerScore' by one
+        ++computerScore;
+
+        /*display the message: "The Round Number: ... ; RoundWinner: The COMPUTER.
+        ---UserScore: ... ---  vs ---ComputerScore: ---
+        the 'computerWeapon' Beats the 'userWeapon'"*/
+        console.log(`The Round Number: ${roundCounter}; RoundWinner: The COMPUTER.\n---UserScore: ${userScore} ---  vs --- ComputerScore: ${computerScore}---\nthe ${computerWeapon} Beats the ${userWeapon}`);
+
+        //increase 'roundCounter' by one
+        ++roundCounter;
+    }
+
+    
+    //if the 'userScore' is got to 5
+    if(userScore === 5)
+    {
+        //set --assign-- 'theWinner' var to "USER" value
+        theWinner = "USER";
+
+        //break the loop, the winner is found successfully
+        break;
+    }
+    //else if 'computerScore' is got to 5
+    else if (computerScore === 5)
+    {
+        //set 'theWinner' var to "COMPUTER" value
+        theWinner = "COMPUTER";
+
+        //stop the loop, the winner is found successfully
+        break;
+    }
+
+}
+
+
+//display the message: "The winner of the game is: THE 'theWinner'", along with some fancy decoration
+console.log("=================================================================");
+console.log("=================================================================");
+console.log("===============                                   ===============");
+console.log(`===========The winner of the game is: THE ${theWinner}===========`);
+console.log("===============                                   ===============");
+console.log("=================================================================");
+console.log("=================================================================");
