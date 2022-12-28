@@ -123,6 +123,15 @@ function isUserWeaponTheStrongest(userWeapon, computerWeapon)
     alert("The weapons are the SAME type and I DO-NOT know WHAT-TO-DO,...\n...please be sure that the weapons are distinct before calling me!!");
 }
 
+//=======================================================================
+//this message should be deleted after adding an UI functionality
+//
+//tell the user to open first the console to truck the progress
+//
+//display the message:
+//  "Please open the console first in order to see what is going on"
+alert("Please open the console first in order to see what is going on");
+//=======================================================================
 
 //declare a var named 'theWinner' that gonna stores the winner of the game
 let theWinner;
