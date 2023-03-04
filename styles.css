@@ -16,9 +16,10 @@ body {
 /*Universal-container (the main container)*/
 .universal-container {
     display: flex;
+    flex-direction: column;
     height: 100vh;
 
-    align-items: flex-start;
+    align-items: center;
     /* background-color: blanchedalmond; */
     /* margin: 0px; */
 }
@@ -31,7 +32,7 @@ body {
     background-color: rgb(240, 166, 70);
     padding: 15px;
 
-    
+    column-gap: 50px;
 }
 
 .playersScope .header {
@@ -85,4 +86,4 @@ body {
     background-color: rgb(241, 223, 199);
 }
 
-/* ====players */
+/* Active Scope */
