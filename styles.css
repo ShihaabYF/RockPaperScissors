@@ -121,11 +121,21 @@ body {
 .activeScope .scorePart {
     width: 150px;
     height: 150px;
+    display: flex;
     border: 2px rgb(5, 4, 4) solid;
     align-self: center;
+
+    font-size: 70px;
+
+    justify-content: center;
+    align-items: center;
+    
 }
 
+/* .universal-container .activeScope .scorePart {} */
 
+
+/* winnerScope */
 .universal-container .winnerScope {
     margin-top: 50px;
     width: 600px;
