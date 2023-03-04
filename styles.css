@@ -27,7 +27,7 @@ body {
 /* players scope */
 .universal-container .playersScope {
     display: flex;
-    flex-grow: 1;
+    /* flex-grow: 1; */
     justify-content: space-around;
     background-color: rgb(240, 166, 70);
     padding: 15px;
@@ -56,7 +56,7 @@ body {
 
 .playersScope .weapons {
     display: flex;
-    flex-grow: 1;
+    /* flex-grow: 1; */
     justify-content: space-between;
     column-gap: 40px;
 
@@ -86,4 +86,7 @@ body {
     background-color: rgb(241, 223, 199);
 }
 
-/* Active Scope */
+/* Active Scope
+.universal-container .activeScope {
+    display: flex;
+} */
