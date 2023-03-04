@@ -20,7 +20,7 @@ body {
     height: 100vh;
 
     align-items: center;
-    /* background-color: blanchedalmond; */
+    /* background-color: rgb(255, 254, 205);debugging */
     /* margin: 0px; */
 }
 
@@ -86,7 +86,37 @@ body {
     background-color: rgb(241, 223, 199);
 }
 
-/* Active Scope
+/* Active Scope*/
 .universal-container .activeScope {
     display: flex;
-} */
+    justify-content: space-between;
+    margin-top: 40px;
+    /* background-color: rgb(59, 201, 211); */
+    /* border: 4px solid rgb(0, 225, 255); */
+    width: 880px;
+
+}
+
+.activeScope .imageDiv {
+    width: 350px;
+    height: 350px;
+    border: 2px rgb(3, 160, 223) solid;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.activeScope img{
+    width:250px;
+    height: auto;
+    background-color: antiquewhite;
+}
+
+
+.activeScope .scorePart {
+    width: 150px;
+    height: 150px;
+    border: 2px rgb(5, 4, 4) solid;
+    align-self: center;
+}
