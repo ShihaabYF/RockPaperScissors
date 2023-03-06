@@ -24,18 +24,13 @@ body {
     height: 100vh;
 
     align-items: center;
-    /* background-color: rgb(255, 254, 205);debugging */
-    /* margin: 0px; */
 }
 
 /* players scope */
 .universal-container .playersScope {
     display: flex;
-    /* flex-grow: 1; */
     justify-content: space-around;
     background-color: rgb(240, 166, 70);
-    /* background-color: white;debugging */
-    /* border: 5px rgb(240, 166, 70) solid; */
     padding: 15px;
 
     column-gap: 50px;
@@ -49,13 +44,11 @@ body {
 
     width: 400px;
 
-    /* border: 2px solid white; */
     padding: 5px;
 }
 
 .playersScope .title {
     color: white;
-    /* color: rgb(240, 166, 70);debugging */
     font-size: 40px;
     font-weight: 900;
     
@@ -63,7 +56,6 @@ body {
 
 .playersScope .weapons {
     display: flex;
-    /* flex-grow: 1; */
     justify-content: space-between;
     column-gap: 40px;
 
@@ -98,8 +90,6 @@ body {
     display: flex;
     justify-content: space-between;
     margin-top: 40px;
-    /* background-color: rgb(59, 201, 211); */
-    /* border: 4px solid rgb(0, 225, 255); */
     width: 880px;
 
 }
@@ -107,7 +97,6 @@ body {
 .activeScope .imageDiv {
     width: 350px;
     height: 350px;
-    /* border: 2px rgb(3, 160, 223) solid; */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -137,8 +126,6 @@ body {
     align-items: center;
     
 }
-
-/* .universal-container .activeScope .scorePart {} */
 
 
 /* winnerScope */
@@ -184,6 +171,8 @@ body {
 
 }
 
+
+/*RESET BUTTON*/
 .resetBtn {
     margin-top: 20px;
     font-size: larger;
