@@ -130,6 +130,11 @@ scissorElem.addEventListener('click', judgeFun);
 let userImgElem = document.querySelector('.activeScope .userImg img');
 let computerImgElem = document.querySelector('.activeScope .computerImg img');
 
+//initial img shadow
+userImgElem.classList.add('initialImgShadow');
+computerImgElem.classList.add('initialImgShadow');
+
+
 
 let resetBtn = document.querySelector('.resetBtn');
 resetBtn.addEventListener('click', resetGame);
@@ -162,6 +167,9 @@ function resetGame()
     winnerScope.classList.remove('gameOver');
     winnerScope.classList.remove('userIsGameWinner');
 
+    //initial shadow
+    userImgElem.classList.add('initialImgShadow');
+    computerImgElem.classList.add('initialImgShadow');
 }
 
 

@@ -108,8 +108,14 @@ body {
     height: auto;
     background-color: antiquewhite;
     border-radius: 10px;
+}
+/*this shadow applied to the images before the game starts*/
+.initialImgShadow {
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    transition: all 2.1s ease;
 
 }
+
 
 
 .activeScope .scorePart {
@@ -153,14 +159,14 @@ body {
 .winner {
     transform: scale(1.2);
     box-shadow: rgba(0, 255, 0, 0.25) 0px 54px 55px, rgba(0, 225, 0, 0.12) 0px -12px 30px, rgba(0, 225, 0, 0.12) 0px 4px 6px, rgba(0, 225, 0, 0.17) 0px 12px 13px, rgba(0, 225, 0, 0.09) 0px -3px 5px;
-    transition: all .1s ease;
+    transition: all .5s ease;
 
 }
 
 .looser {
     transform: scale(0.8);
     box-shadow: rgba(225, 0, 0, 0.25) 0px 54px 55px, rgba(225, 0, 0, 0.12) 0px -12px 30px, rgba(225, 0, 0, 0.12) 0px 4px 6px, rgba(225, 0, 0, 0.17) 0px 12px 13px, rgba(225, 0, 0, 0.09) 0px -3px 5px;
-    transition: all .1s ease;
+    transition: all .5s ease;
 
 }
 
