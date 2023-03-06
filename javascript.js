@@ -98,15 +98,6 @@ function isUserWeaponTheStrongest(userWeapon, computerWeapon)
     alert("The weapons are the SAME type and I DO-NOT know WHAT-TO-DO,...\n...please be sure that the weapons are distinct before calling me!!");
 }
 
-//=======================================================================
-//this message should be deleted after adding an UI functionality
-//
-//tell the user to open first the console to truck the progress
-//
-//display the message:
-//  "Please open the console first in order to see what is going on"
-alert("Please open the console first in order to see what is going on");
-//=======================================================================
 
 // 'theWinner' gonna stores the winner of the game
 let theWinner;
@@ -115,7 +106,7 @@ let userScore = 0;
 
 let computerScore = 0;
 
-let roundCounter = 1;
+let roundCounter = 0;
 
 /*'userWeapon' gonna stores one of: "--Rock, Paper, Scissor--"
 it will store the value that will be token from the user later */
@@ -125,59 +116,230 @@ let userWeapon;
 it will store the value that will be generated randomly by the computer later */
 let computerWeapon;
 
+let paperElem = document.querySelector('.playersScope .userSection .paper');
+let rockElem = document.querySelector('.playersScope .userSection .rock');
+let scissorElem = document.querySelector('.playersScope .userSection .scissor');
 
-//make an infinite loop that only stop if 'userScore' OR 'computerScore' is equal to 5
-while(true)
+//winnerScope
+let winnerScope = document.querySelector('.winnerScope');
+
+let userScoreElem = document.querySelector('.scorePart .userScore');
+let computerScoreElem = document.querySelector('.scorePart .computerScore');
+
+paperElem.addEventListener('click', judgeFun);
+rockElem.addEventListener('click', judgeFun);
+scissorElem.addEventListener('click', judgeFun);
+
+let userImgElem = document.querySelector('.activeScope .userImg img');
+let computerImgElem = document.querySelector('.activeScope .computerImg img');
+// alert(userImgElem);
+
+let resetBtn = document.querySelector('.resetBtn');
+
+resetBtn.addEventListener('click', resetGame);
+
+function resetGame()
 {
-    userWeapon = getUserWeapon();
+    //reset the scores
+    userScore = 0;
+    computerScore = 0;
+    userScoreElem.textContent = userScore;
+    computerScoreElem.textContent = computerScore;
 
-    computerWeapon = getComputerWeapon();
+    //reset img to the initial one;
+    userImgElem.setAttribute('src', './image/sand-clock.png');
+    computerImgElem.setAttribute('src', './image/sand-clock.png');
 
-    //if the weapons are the same
-    if (userWeapon === computerWeapon)
+    //remove the dynamic styling from imgs
+    computerImgElem.classList.remove('winner');
+    computerImgElem.classList.remove('looser');
+
+    userImgElem.classList.remove('winner');
+    userImgElem.classList.remove('looser');
+
+    userImgElem.classList.remove('tieRound');
+    computerImgElem.classList.remove('tieRound');
+
+    //
+    winnerScope.innerHTML = 'Waiting for <strong>Battle</strong> to <strong>start</strong>';
+    winnerScope.classList.remove('gameOver');
+    winnerScope.classList.remove('userIsGameWinner');
+
+}
+
+
+function  judgeFun(e)
+{
+
+    if((userScore < 5) && (computerScore < 5))
     {
-        console.log(`The Round Number: ${roundCounter};  it is a Tie-Round, No winner, No loser!`);
+        winnerScope.innerHTML = `The <strong>BATTLE</strong> is <strong>ON</strong>`;
+        //set the userWeapon
+        if(e.target === paperElem)
+        {
+            userWeapon = 'PAPER';
+            userImgElem.setAttribute('src','./image/fly-paper.png')
+            // alert(userWeapon);
+        }
+        else if(e.target === rockElem)
+        {
+            userWeapon = 'ROCK';
+            userImgElem.setAttribute('src', './image/rock.png');
 
-        ++roundCounter;
-    }
-    //else if the user is the round winner 
-    else if(isUserWeaponTheStrongest(userWeapon, computerWeapon))
-    {
-        ++userScore;
+            // alert(userWeapon);
+        }
+        else
+        {
+            userWeapon = 'SCISSOR';
+            userImgElem.setAttribute('src', './image/scissor.png');
+            // alert(userWeapon);
+        }
 
-        console.log(`The Round Number: ${roundCounter}; RoundWinner: The USER.\n---UserScore: ${userScore} ------  vs --- ComputerScore: ${computerScore}---\nthe ${userWeapon} Beats the ${computerWeapon}`);
-        
-        ++roundCounter;
-    }
-    //else if the computer is the round winner
-    else
-    {
-        ++computerScore;
+        //get the computerWeapon : random
+        computerWeapon = getComputerWeapon();
 
-        console.log(`The Round Number: ${roundCounter}; RoundWinner: The COMPUTER.\n---UserScore: ${userScore} ---  vs --- ComputerScore: ${computerScore}---\nthe ${computerWeapon} Beats the ${userWeapon}`);
 
-        ++roundCounter;
-    }
+        if(computerWeapon === 'PAPER')
+        {
+            computerImgElem.setAttribute('src', './image/fly-paper.png');
+        }
+        else if(computerWeapon === 'ROCK')
+        {
+            computerImgElem.setAttribute('src', './image/rock.png');
+        }
+        else if(computerWeapon === 'SCISSOR')
+        {
+            computerImgElem.setAttribute('src', './image/scissor.png');
+        }
 
-    
-    //if the 'userScore' is got to 5
-    if(userScore === 5)
-    {
-        theWinner = "USER";
 
-        //break the loop, the winner is found successfully
-        break;
-    }
-    //else if 'computerScore' is got to 5
-    else if (computerScore === 5)
-    {
-        theWinner = "COMPUTER";
+        /*compare weapons*/ 
+        if(userWeapon === computerWeapon)
+        {
+            // alert(`${userWeapon} vs ${computerWeapon}`);
+            computerImgElem.classList.remove('winner');
+            computerImgElem.classList.remove('looser');
 
-        //stop the loop, the winner is found successfully
-        break;
+            userImgElem.classList.remove('winner');
+            userImgElem.classList.remove('looser');
+
+            computerImgElem.classList.add('tieRound');
+            userImgElem.classList.add('tieRound');
+            
+        }
+        else if(isUserWeaponTheStrongest(userWeapon, computerWeapon))
+        {
+            // alert(`${userWeapon} vs ${computerWeapon}`);
+            // ++userScore;
+            userImgElem.classList.remove('looser');
+            computerImgElem.classList.remove('winner');
+
+            //remove the tieRound style
+            userImgElem.classList.remove('tieRound');
+            computerImgElem.classList.remove('tieRound');
+
+
+            computerImgElem.classList.add('looser');
+            userImgElem.classList.add('winner');
+
+
+
+            userScoreElem.textContent = ++userScore;
+
+        }
+        else
+        {
+            // alert(`${userWeapon} vs ${computerWeapon}`);
+            // ++computerScore;
+            computerImgElem.classList.remove('looser');
+            userImgElem.classList.remove('winner');
+
+            //remove the tieRound style
+            userImgElem.classList.remove('tieRound');
+            computerImgElem.classList.remove('tieRound');
+            
+
+
+            userImgElem.classList.add('looser');
+            computerImgElem.classList.add('winner');
+
+
+
+
+            computerScoreElem.textContent = ++computerScore;
+
+        }
+
+        if(computerScore === 5)
+        {
+            document.querySelector('.winnerScope').textContent = 'GAME OVER, YOU\'RE LOST';
+            document.querySelector('.winnerScope').classList.add('gameOver');
+        }
+        else if (userScore === 5)
+        {
+            document.querySelector('.winnerScope').textContent = 'YOU ARE THE WINNER';
+            document.querySelector('.winnerScope').classList.add('userIsGameWinner');
+        }
+
     }
 
 }
+
+
+//make an infinite loop that only stop if 'userScore' OR 'computerScore' is equal to 5
+// while(true)
+// {
+//     paperElem.addEventListener('click', () => userWeapon = 'PAPER');
+//     rockElem.addEventListener('click', () => userWeapon = 'ROCK');
+//     scissorElem.addEventListener('click', () => userWeapon = 'SCISSOR');
+
+//     computerWeapon = getComputerWeapon();
+
+//     //if the weapons are the same
+//     if (userWeapon === computerWeapon)
+//     {
+//         console.log(`The Round Number: ${roundCounter};  it is a Tie-Round, No winner, No loser!`);
+
+//         ++roundCounter;
+//     }
+//     //else if the user is the round winner 
+//     else if(isUserWeaponTheStrongest(userWeapon, computerWeapon))
+//     {
+//         ++userScore;
+
+//         console.log(`The Round Number: ${roundCounter}; RoundWinner: The USER.\n---UserScore: ${userScore} ------  vs --- ComputerScore: ${computerScore}---\nthe ${userWeapon} Beats the ${computerWeapon}`);
+        
+//         ++roundCounter;
+//     }
+//     //else if the computer is the round winner
+//     else
+//     {
+//         ++computerScore;
+
+//         console.log(`The Round Number: ${roundCounter}; RoundWinner: The COMPUTER.\n---UserScore: ${userScore} ---  vs --- ComputerScore: ${computerScore}---\nthe ${computerWeapon} Beats the ${userWeapon}`);
+
+//         ++roundCounter;
+//     }
+
+    
+//     //if the 'userScore' is got to 5
+//     if(userScore === 5)
+//     {
+//         theWinner = "USER";
+
+//         //break the loop, the winner is found successfully
+//         break;
+//     }
+//     //else if 'computerScore' is got to 5
+//     else if (computerScore === 5)
+//     {
+//         theWinner = "COMPUTER";
+
+//         //stop the loop, the winner is found successfully
+//         break;
+//     }
+
+// }
 
 
 //display the message: "The winner of the game is: THE 'theWinner'", along with some fancy decoration
